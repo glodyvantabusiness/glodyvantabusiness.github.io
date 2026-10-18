@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glody Vanta Business – Récupérez vos clients perdus</title>
+<meta name="description" content="Retrouvez les clients qui ne reviennent plus et récupérez l’argent perdu. Essai gratuit de 3 jours, puis 2,5 $ par semaine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14213d;--paper:#f6f7f9;--white:#fff;--sun:#f2b705;--lost:#c8402f;--won:#1e8e5a;--muted:#5b6478;--line:#dde1e9;color-scheme:light}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px}
+h1,h2,h3{font-family:"Bricolage Grotesque","DM Sans",system-ui,sans-serif;line-height:1.1;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;text-decoration:none}
+.logo span{background:var(--sun);padding:0 6px;border-radius:4px;margin-right:6px}
+.btn{display:inline-block;background:var(--ink);color:var(--white);padding:13px 22px;border-radius:10px;font-weight:700;text-decoration:none;border:0;font:inherit;font-weight:700;cursor:pointer}
+.btn:hover{background:#0d1730}
+.btn:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.btn.sun{background:var(--sun);color:var(--ink)}
+.btn.sun:hover{background:#ffc928}
+.hero{padding:36px 0 56px}
+.hero h1{font-size:clamp(36px,8vw,64px);font-weight:800;max-width:14ch}
+.hero p.lead{font-size:19px;color:var(--muted);max-width:46ch;margin:18px 0 26px}
+.demo{background:var(--white);border:2px solid var(--ink);border-radius:16px;margin-top:40px;overflow:hidden}
+.demo-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px 18px;background:var(--ink);color:var(--white)}
+.demo-top b{font-family:"Bricolage Grotesque",sans-serif;font-size:26px;display:block;line-height:1.1}
+.demo-top small{opacity:.75;font-size:13px}
+#won{color:var(--sun)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-top:1px solid var(--line)}
+.row .who b{display:block}
+.row .who small{color:var(--lost);font-weight:500}
+.row.done .who small{color:var(--won)}
+.row button{background:var(--sun);border:0;border-radius:8px;padding:9px 14px;font:inherit;font-weight:700;cursor:pointer;color:var(--ink)}
+.row.done button{background:var(--line);cursor:default}
+#msg{display:none;padding:16px 18px;background:#fff8e1;border-top:2px solid var(--sun);font-size:15px}
+#msg.on{display:block}
+#msg p{margin-top:6px;font-style:italic}
+.note{font-size:13px;color:var(--muted);padding:10px 18px 14px}
+section{padding:56px 0}
+section h2{font-size:clamp(28px,5vw,40px);margin-bottom:26px;font-weight:800}
+.feat{list-style:none;padding:0;display:grid;gap:0}
+.feat li{padding:20px 0;border-top:2px solid var(--ink);display:grid;gap:4px}
+.feat li:last-child{border-bottom:2px solid var(--ink)}
+.feat h3{font-size:22px}
+.feat p{color:var(--muted);max-width:60ch}
+.price{background:var(--ink);color:var(--white);border-radius:18px;padding:34px 24px}
+.price h2{color:var(--white);margin-bottom:10px}
+.big{font-family:"Bricolage Grotesque",sans-serif;font-size:56px;font-weight:800;line-height:1}
+.big small{font-size:20px;font-weight:600;opacity:.8}
+.price ul{margin:20px 0 26px;padding-left:20px}
+.price li{margin:6px 0}
+.lead2{color:var(--muted);max-width:52ch}
+footer{padding:30px 0 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+@media(min-width:760px){.feat li{grid-template-columns:260px 1fr;gap:24px;align-items:start}.price{padding:44px}}
+@media(prefers-reduced-motion:no-preference){.row{transition:background .3s}.row.done{background:#eefaf3}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="logo" href="#"><span>GV</span>Glody Vanta Business</a>
+  <a class="btn sun" href="#tarif">Essayer</a>
+</header>
+
+<main>
+<div class="hero">
+  <h1>Vos clients sont partis. Ramenez-les.</h1>
+  <p class="lead">Glody Vanta Business montre quels clients ne reviennent plus, combien d’argent vous perdez, et vous donne le message à envoyer pour les faire revenir.</p>
+  <a class="btn sun" href="#tarif">Commencer 3 jours gratuits</a>
+
+  <div class="demo" aria-label="Démonstration">
+    <div class="demo-top">
+      <div><small>Argent à récupérer</small><b id="lost">0 $</b></div>
+      <div><small>Déjà récupéré</small><b id="won">0 $</b></div>
+    </div>
+    <div id="list"></div>
+    <div id="msg" aria-live="polite"><strong>Message prêt à envoyer :</strong><p id="msgtxt"></p></div>
+    <p class="note">Démonstration avec des clients fictifs. Touchez « Relancer ».</p>
+  </div>
+</div>
+
+<section id="fonctions">
+  <h2>Ce que fait l’application</h2>
+  <ul class="feat">
+    <li><h3>Liste de vos clients</h3><p>Ajoutez le nom, le numéro et la date du dernier achat. Rien de compliqué.</p></li>
+    <li><h3>Clients inactifs</h3><p>L’application repère ceux qui n’ont rien acheté depuis 30, 60 ou 90 jours.</p></li>
+    <li><h3>Messages de relance</h3><p>Des modèles prêts pour WhatsApp, SMS et email. Vous touchez « Envoyer » et c’est parti.</p></li>
+    <li><h3>Suivi des résultats</h3><p>Vous voyez combien de clients sont revenus et combien d’argent vous avez récupéré.</p></li>
+    <li><h3>Espace développement</h3><p>De courtes formations et des conseils pour faire grandir votre business, étape par étape.</p></li>
+  </ul>
+</section>
+
+<section id="tarif">
+  <div class="price">
+    <h2>Un seul abonnement</h2>
+    <div class="big">2,5 $ <small>par semaine</small></div>
+    <ul>
+      <li>3 jours d’essai gratuit</li>
+      <li>Toutes les fonctions incluses</li>
+      <li>Annulation à tout moment</li>
+    </ul>
+    <a class="btn sun" id="wa" href="https://wa.me/VOTRE_NUMERO?text=Bonjour%2C%20je%20veux%20essayer%20Glody%20Vanta%20Business">Démarrer l’essai gratuit</a>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 Glody Vanta Business</footer>
+</div>
+
+<script>
+var clients=[
+ {n:"Boutique Mama Julie",d:45,m:80},
+ {n:"Salon Beauté Kin",d:62,m:120},
+ {n:"Restaurant Chez Papy",d:90,m:200}
+];
+var list=document.getElementById("list"),lostEl=document.getElementById("lost"),wonEl=document.getElementById("won"),msg=document.getElementById("msg"),txt=document.getElementById("msgtxt");
+function total(f){return clients.filter(f).reduce(function(s,c){return s+c.m},0)}
+function render(){
+  list.innerHTML="";
+  clients.forEach(function(c,i){
+    var r=document.createElement("div");r.className="row"+(c.done?" done":"");
+    r.innerHTML='<div class="who"><b>'+c.n+'</b><small>'+(c.done?"Message envoyé":"Inactif depuis "+c.d+" jours")+'</small></div><button type="button"'+(c.done?" disabled":"")+'>'+(c.done?"Relancé":"Relancer")+'</button>';
+    r.querySelector("button").onclick=function(){relance(i)};
+    list.appendChild(r);
+  });
+  lostEl.textContent=total(function(c){return !c.done})+" $";
+  wonEl.textContent=total(function(c){return c.done})+" $";
+}
+function relance(i){
+  clients[i].done=true;
+  txt.textContent="Bonjour "+clients[i].n+", vous nous manquez ! Passez cette semaine : une offre spéciale vous attend.";
+  msg.className="on";
+  render();
+}
+render();
+</script>
+</body>
+</html>
